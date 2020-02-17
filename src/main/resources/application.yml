@@ -25,7 +25,7 @@ camunda:
       id: admin
       password: admin
       first-name: admin
-    deployment-resource-pattern: ../bpms/*
+    deployment-resource-pattern: ../bpmns/*
 
 #demo-platafoma-engine
 #demo-plataforma-simulacao-api
