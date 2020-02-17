@@ -19,13 +19,12 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 
 
+
 camunda:
   bpm:
     admin-user:
       id: admin
       password: admin
       first-name: admin
-    deployment-resource-pattern: ../bpmns/*
-
-#demo-platafoma-engine
-#demo-plataforma-simulacao-api
+    auto-deployment-enabled: true
+    deployment-resource-pattern: classpath:/bpmns/**.bpmn
