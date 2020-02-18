@@ -28,3 +28,6 @@ camunda:
       first-name: admin
     auto-deployment-enabled: true
     deployment-resource-pattern: classpath:/bpmns/**.bpmn
+
+
+logging.level.br.com.itau.co8.Feign.RestEngine: DEBUG

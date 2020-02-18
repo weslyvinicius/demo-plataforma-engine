@@ -1,11 +1,5 @@
 package br.com.itau.co8.Controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
@@ -17,23 +11,23 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import br.com.itau.co8.dto.DeployBpmnDTO;
-import br.com.itau.co8.dto.DeployBpmnEngineDTO;
+import br.com.itau.co8.Dto.DeployBpmnDTO;
+import br.com.itau.co8.Feign.RestEngine;
+import br.com.itau.co8.Util.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("deployment/create")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DeployBpmnController {
+
+    private final RestEngine restEngine;
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
@@ -44,8 +38,10 @@ public class DeployBpmnController {
 
         MultiValueMap<String, Object> body
                 = new LinkedMultiValueMap<>();
+        FileSystemResource file = new FileSystemResource(ConvertUtils.convert(deployBpmnDTO.getFile()));
+
         body.add("deployment-name", deployBpmnDTO.getNomeBpmn());
-        body.add("file", new FileSystemResource(convert(deployBpmnDTO.getFile())));
+        body.add("file", file);
         body.add("enable-duplicate-filtering", Boolean.FALSE);
         body.add("deploy-changed-only", Boolean.FALSE);
         body.add("deployment-source", "local");
@@ -57,22 +53,25 @@ public class DeployBpmnController {
         ResponseEntity<String> result  = restTemplate.postForEntity("http://localhost:8080/rest/deployment/create",
                 requestEntity, String.class);
 
+
+        ConvertUtils.deleteFile(file.getFile());
+
+
+/*
+        DeployBpmnEngineDTO deployBpmnEngineDTO = DeployBpmnEngineDTO.builder()
+                .deploymentName(deployBpmnDTO.getNomeBpmn())
+                .file(ConvertUtils.convert(deployBpmnDTO.getFile()))
+                .deployChangedOnly(Boolean.FALSE)
+                .enableDuplicateFiltering(Boolean.FALSE)
+                .deploymentSource("local")
+                .build();
+
+        final ResponseEntity<?> responseEntity = restEngine.uploadBpmnEngine(deployBpmnEngineDTO);
+
+        ConvertUtils.deleteFile(deployBpmnEngineDTO.getFile());
+*/
     }
 
-    public static File convert(MultipartFile file) {
-        File convFile = new File(file.getOriginalFilename());
-        try {
-            convFile.createNewFile();
-            FileOutputStream fos = new FileOutputStream(convFile);
-            fos.write(file.getBytes());
-            fos.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return convFile;
-    }
 
 
 }

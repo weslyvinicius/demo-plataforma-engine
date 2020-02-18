@@ -1,4 +1,4 @@
-package br.com.itau.co8.dto;
+package br.com.itau.co8.Dto;
 
 import javax.validation.constraints.NotEmpty;
 
