@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="Definitions_1ay0wrr" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:process id="catalogo" name="Catálogo de Serviços/Processos" isExecutable="true">
+    <bpmn:callActivity id="Task_0vso6rc" name="Analisando proposta" calledElement="analisando_proposta" />
+    <bpmn:callActivity id="Task_0rzcrm4" name="Analise de fraude" calledElement="analise_fraude" />
+    <bpmn:callActivity id="Task_18qgxlg" name="Atualiza cadastro pessoa" calledElement="atualiza_cadastro_pessoa" />
+    <bpmn:callActivity id="Task_0ik98vq" name="Atualiza proposta" calledElement="atualiza_proposta" />
+    <bpmn:callActivity id="Task_1ngv864" name="Cancela proposta - NO" calledElement="cancela_proposta_no" />
+    <bpmn:callActivity id="Task_0kq29ib" name="Carão adicional" calledElement="cartao_adicional" />
+    <bpmn:callActivity id="Task_0485abu" name="Coleta dados" calledElement="coleta_dados" />
+    <bpmn:callActivity id="Task_0lba9un" name="Confirmação" calledElement="confirmacao" />
+    <bpmn:callActivity id="Task_086jmep" name="Dados do cliente" calledElement="dados_cliente" />
+    <bpmn:callActivity id="Task_1nczl2p" name="Dados completos (mesa credito)" calledElement="dados_completos_mesa_credito" />
+    <bpmn:callActivity id="Task_1nyj10o" name="Dados do endereço" calledElement="dados_endereco" />
+    <bpmn:callActivity id="Task_1t1l9kk" name="Dados profissionais" calledElement="dados_profissionais" />
+    <bpmn:callActivity id="Task_14cta8g" name="Efetivar Proposta de seguros" calledElement="efetivar_proposta_seguros" />
+    <bpmn:callActivity id="Task_0rpfmmd" name="Emitir cartão" calledElement="emitir_cartao" />
+    <bpmn:callActivity id="Task_0n8momt" name="Foto documento" calledElement="foto_documento" />
+    <bpmn:callActivity id="Task_0b9cwog" name="Informações adicionais" calledElement="informacoes_adicionais" />
+    <bpmn:callActivity id="Task_0r7kyvk" name="Oferta cartão" calledElement="oferta_cartao" />
+    <bpmn:callActivity id="Task_0cgdcle" name="Oferta seguro" calledElement="oferta_seguro" />
+    <bpmn:callActivity id="Task_18pec7i" name="Proposta não aprovada" calledElement="proposta_nao_aprovada" />
+    <bpmn:callActivity id="Task_1jp8cz5" name="Recusa pré-analise" calledElement="recusa_pre_analise" />
+    <bpmn:callActivity id="Task_1c2oq0u" name="Salvar documento" calledElement="salvar_documento" />
+    <bpmn:callActivity id="Task_0e9ew2p" name="Seleciona loja" calledElement="seleciona_loja" />
+    <bpmn:callActivity id="Task_16zioo4" name="Selecionar serviços e seguros" calledElement="selecionar_servicos_e_seguros" />
+    <bpmn:callActivity id="Task_0fbf7gy" name="Selecione uma oferta" calledElement="selecione_uma_oferta" />
+    <bpmn:callActivity id="Task_05l1nwr" name="Simulação proposta" calledElement="simulacao_proposta" />
+    <bpmn:callActivity id="Task_05rggh3" name="Solicitação aprovada" calledElement="solicitacao_aprovada" />
+    <bpmn:callActivity id="Task_1e6ylh5" name="Termo e resumo" calledElement="termo_e_resumo" />
+    <bpmn:callActivity id="Task_0vw2iwq" name="Selecionar serviços e seguros" calledElement="selecionar_servicos_e_seguros" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="catalogo">
+      <bpmndi:BPMNShape id="CallActivity_08frqaw_di" bpmnElement="Task_0vso6rc">
+        <dc:Bounds x="160" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0m10q6h_di" bpmnElement="Task_0rzcrm4">
+        <dc:Bounds x="270" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0eb2um7_di" bpmnElement="Task_18qgxlg">
+        <dc:Bounds x="380" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0bvbb6q_di" bpmnElement="Task_0ik98vq">
+        <dc:Bounds x="490" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0gmwlzz_di" bpmnElement="Task_1ngv864">
+        <dc:Bounds x="600" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0zhdwh4_di" bpmnElement="Task_0kq29ib">
+        <dc:Bounds x="710" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0ghx5n4_di" bpmnElement="Task_0485abu">
+        <dc:Bounds x="820" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1cyls78_di" bpmnElement="Task_0lba9un">
+        <dc:Bounds x="160" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_19106eb_di" bpmnElement="Task_086jmep">
+        <dc:Bounds x="270" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1r2zqp1_di" bpmnElement="Task_1nczl2p">
+        <dc:Bounds x="380" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1b4n4ef_di" bpmnElement="Task_1nyj10o">
+        <dc:Bounds x="490" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1bj114w_di" bpmnElement="Task_1t1l9kk">
+        <dc:Bounds x="600" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1ybatp3_di" bpmnElement="Task_14cta8g">
+        <dc:Bounds x="710" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0htpz48_di" bpmnElement="Task_0rpfmmd">
+        <dc:Bounds x="820" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0iuaoni_di" bpmnElement="Task_0n8momt">
+        <dc:Bounds x="160" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1yx9i9d_di" bpmnElement="Task_0b9cwog">
+        <dc:Bounds x="270" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1aoumra_di" bpmnElement="Task_0r7kyvk">
+        <dc:Bounds x="380" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1naqo48_di" bpmnElement="Task_0cgdcle">
+        <dc:Bounds x="490" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0b9tnc1_di" bpmnElement="Task_18pec7i">
+        <dc:Bounds x="600" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0m6vjdi_di" bpmnElement="Task_1jp8cz5">
+        <dc:Bounds x="710" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1xjok38_di" bpmnElement="Task_1c2oq0u">
+        <dc:Bounds x="820" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0vf6pzo_di" bpmnElement="Task_0e9ew2p">
+        <dc:Bounds x="160" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0a45d4m_di" bpmnElement="Task_16zioo4">
+        <dc:Bounds x="270" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0ru0q9e_di" bpmnElement="Task_0fbf7gy">
+        <dc:Bounds x="380" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0a2mnnt_di" bpmnElement="Task_05l1nwr">
+        <dc:Bounds x="490" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_096uz4l_di" bpmnElement="Task_05rggh3">
+        <dc:Bounds x="600" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_0x3zlsg_di" bpmnElement="Task_1e6ylh5">
+        <dc:Bounds x="710" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1gjn3c5_di" bpmnElement="Task_0vw2iwq">
+        <dc:Bounds x="820" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
