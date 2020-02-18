@@ -24,7 +24,4 @@ public class ConvertUtils {
         return convFile;
     }
 
-    public static void deleteFile(File file ) {
-        file.deleteOnExit();
-    }
 }

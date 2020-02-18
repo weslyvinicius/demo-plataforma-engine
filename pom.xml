@@ -20,6 +20,7 @@
         <java.version>8</java.version>
         <camunda.version>3.4.0</camunda.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <feign-form-version>3.8.0</feign-form-version>
     </properties>
 
     <dependencyManagement>
@@ -78,12 +79,12 @@
         <dependency>
             <groupId>io.github.openfeign.form</groupId>
             <artifactId>feign-form</artifactId>
-            <version>3.8.0</version>
+            <version>${feign-form-version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.openfeign.form</groupId>
             <artifactId>feign-form-spring</artifactId>
-            <version>3.8.0</version>
+            <version>${feign-form-version}</version>
         </dependency>
 
         <dependency>
