@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0bpkl8y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:process id="seleciona_loja" isExecutable="true">
+    <bpmn:startEvent id="seleciona">
+      <bpmn:outgoing>SequenceFlow_0ht4tdp</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0ht4tdp" sourceRef="seleciona" targetRef="Task_0xavio8" />
+    <bpmn:endEvent id="EndEvent_0brb1m2">
+      <bpmn:incoming>SequenceFlow_0i02ikp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0i02ikp" sourceRef="Task_0xavio8" targetRef="EndEvent_0brb1m2" />
+    <bpmn:userTask id="Task_0xavio8" name="Seleciona loja">
+      <bpmn:incoming>SequenceFlow_0ht4tdp</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0i02ikp</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="seleciona_loja">
+      <bpmndi:BPMNShape id="StartEvent_13txpj2_di" bpmnElement="seleciona">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ht4tdp_di" bpmnElement="SequenceFlow_0ht4tdp">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="290" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_0brb1m2_di" bpmnElement="EndEvent_0brb1m2">
+        <dc:Bounds x="452" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0i02ikp_di" bpmnElement="SequenceFlow_0i02ikp">
+        <di:waypoint x="390" y="120" />
+        <di:waypoint x="452" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1kom6g3_di" bpmnElement="Task_0xavio8">
+        <dc:Bounds x="290" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

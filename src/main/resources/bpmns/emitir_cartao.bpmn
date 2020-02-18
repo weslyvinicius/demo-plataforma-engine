@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_147qpa9" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:process id="emitir_cartao" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1ryeu3g">
+      <bpmn:outgoing>SequenceFlow_02uur82</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_03j7fnf">
+      <bpmn:incoming>SequenceFlow_0azcltn</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="UserTask_0qmueed" />
+    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="UserTask_0qmueed" targetRef="EndEvent_03j7fnf" />
+    <bpmn:userTask id="UserTask_0qmueed" name="Emitir cartão">
+      <bpmn:incoming>SequenceFlow_02uur82</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0azcltn</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="emitir_cartao">
+      <bpmndi:BPMNShape id="StartEvent_1ryeu3g_di" bpmnElement="StartEvent_1ryeu3g">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_03j7fnf_di" bpmnElement="EndEvent_03j7fnf">
+        <dc:Bounds x="422" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_02uur82_di" bpmnElement="SequenceFlow_02uur82">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="260" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0azcltn_di" bpmnElement="SequenceFlow_0azcltn">
+        <di:waypoint x="360" y="120" />
+        <di:waypoint x="422" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_087748w_di" bpmnElement="UserTask_0qmueed">
+        <dc:Bounds x="260" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
