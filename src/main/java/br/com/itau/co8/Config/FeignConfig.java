@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.itau.co8.Feign.decoder.FeignErrorDecoder;
+import br.com.itau.co8.exception.FeignErrorDecoder;
 import feign.Logger;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
@@ -26,12 +26,13 @@ public class FeignConfig {
     }
 
     @Bean
+    public Encoder feignFormEncoder () {
+        return new SpringFormEncoder(new SpringEncoder(messageConverters));
+    }
+
+    @Bean
     public FeignErrorDecoder errorDecoder() {
         return new FeignErrorDecoder();
     }
 
-    @Bean
-    public Encoder feignFormEncoder () {
-        return new SpringFormEncoder(new SpringEncoder(messageConverters));
-    }
 }

@@ -1,20 +1,16 @@
-package br.com.itau.co8.Feign.decoder;
+package br.com.itau.co8.exception;
 
 import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
-import br.com.itau.co8.exception.IntegrationErrorException;
-import br.com.itau.co8.exception.ResourceNotFoundException;
 import feign.Request;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
 
-@Component
 @Slf4j
 public class FeignErrorDecoder implements ErrorDecoder {
 

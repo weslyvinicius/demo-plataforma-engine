@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.itau.co8.Dto.DeployBpmnDTO;
+import br.com.itau.co8.Dto.DeployBpmnEngineDTO;
 import br.com.itau.co8.Feign.RestEngine;
 import br.com.itau.co8.Util.ConvertUtils;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,7 @@ public class DeployBpmnController {
     @ResponseStatus(HttpStatus.CREATED)
     public void deployJornada( @ModelAttribute("upload") DeployBpmnDTO deployBpmnDTO){
 
+/*
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
@@ -55,9 +57,9 @@ public class DeployBpmnController {
 
 
         ConvertUtils.deleteFile(file.getFile());
+*/
 
 
-/*
         DeployBpmnEngineDTO deployBpmnEngineDTO = DeployBpmnEngineDTO.builder()
                 .deploymentName(deployBpmnDTO.getNomeBpmn())
                 .file(ConvertUtils.convert(deployBpmnDTO.getFile()))
@@ -69,7 +71,7 @@ public class DeployBpmnController {
         final ResponseEntity<?> responseEntity = restEngine.uploadBpmnEngine(deployBpmnEngineDTO);
 
         ConvertUtils.deleteFile(deployBpmnEngineDTO.getFile());
-*/
+
     }
 
 
