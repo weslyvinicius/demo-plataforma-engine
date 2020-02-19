@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0bpkl8y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0bpkl8y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
   <bpmn:process id="salvar_documento" isExecutable="true">
     <bpmn:startEvent id="seleciona">
       <bpmn:outgoing>SequenceFlow_0ht4tdp</bpmn:outgoing>
@@ -9,7 +9,7 @@
       <bpmn:incoming>SequenceFlow_0i02ikp</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0i02ikp" sourceRef="Task_0xavio8" targetRef="EndEvent_0brb1m2" />
-    <bpmn:serviceTask id="Task_0xavio8" name="Salvar documento">
+    <bpmn:serviceTask id="Task_0xavio8" name="Salvar documento" camunda:delegateExpression="salvarDocumentoTask">
       <bpmn:incoming>SequenceFlow_0ht4tdp</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0i02ikp</bpmn:outgoing>
     </bpmn:serviceTask>
