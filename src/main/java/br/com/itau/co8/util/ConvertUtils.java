@@ -1,4 +1,4 @@
-package br.com.itau.co8.Util;
+package br.com.itau.co8.util;
 
 import java.io.File;
 import java.io.FileOutputStream;

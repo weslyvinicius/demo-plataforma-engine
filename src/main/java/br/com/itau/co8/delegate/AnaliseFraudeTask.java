@@ -2,9 +2,9 @@ package br.com.itau.co8.delegate;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
+@Component
 public class AnaliseFraudeTask implements JavaDelegate {
 
 	@Override
