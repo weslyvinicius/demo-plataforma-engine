@@ -9,7 +9,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="service_task-atualiza_cadastro_pessoa" />
     <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="service_task-atualiza_cadastro_pessoa" targetRef="EndEvent_03j7fnf" />
-    <bpmn:serviceTask id="service_task-atualiza_cadastro_pessoa" name="Atualiza cadastro pessoa" camunda:delegateExpression="atualizaCadastroPessoaTask">
+    <bpmn:serviceTask id="service_task-atualiza_cadastro_pessoa" name="Atualiza cadastro pessoa" camunda:delegateExpression="${atualizaCadastroPessoaTask}">
       <bpmn:incoming>SequenceFlow_02uur82</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0azcltn</bpmn:outgoing>
     </bpmn:serviceTask>
