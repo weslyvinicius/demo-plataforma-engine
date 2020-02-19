@@ -32,6 +32,5 @@ public class UserTaskController {
         }else {
             formService.submitTaskForm(task.getId(), new HashMap<>());
         }
-
     }
 }
