@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("jornada/v1")
+@RequestMapping("jornadas/v1")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class JornadaController {
 

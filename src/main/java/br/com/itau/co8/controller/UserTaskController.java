@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
-@RequestMapping("user-tasks/v1")
+@RequestMapping("userTasks/v1")
 public class UserTaskController {
 
     private final TaskService taskService;

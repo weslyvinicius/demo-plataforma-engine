@@ -30,5 +30,7 @@ camunda:
     deployment-resource-pattern: classpath:/bpmns/**.bpmn
 
 
+server.url.rest.camunda: localhost:${server.port}/rest
+camunda.rest.deployment.create: /deployment/create
 
 logging.level.br.com.itau.co8.Feign.RestEngine: DEBUG
