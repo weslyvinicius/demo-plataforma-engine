@@ -1,11 +1,11 @@
-package br.com.itau.co8.Feign;
+package br.com.itau.co8.feign;
 
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.com.itau.co8.Dto.DeployBpmnEngineDTO;
+import br.com.itau.co8.dto.DeployBpmnEngineDTO;
 import feign.Headers;
 
 

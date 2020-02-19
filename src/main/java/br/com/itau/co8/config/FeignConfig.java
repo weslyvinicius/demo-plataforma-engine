@@ -1,4 +1,4 @@
-package br.com.itau.co8.Config;
+package br.com.itau.co8.config;
 
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
 
 @Configuration
-@EnableFeignClients(basePackages = "br.com.itau.co8.Feign")
+@EnableFeignClients(basePackages = "br.com.itau.co8.feign")
 public class FeignConfig {
 
     @Autowired

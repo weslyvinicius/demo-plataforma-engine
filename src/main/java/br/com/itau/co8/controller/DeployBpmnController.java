@@ -1,4 +1,4 @@
-package br.com.itau.co8.Controller;
+package br.com.itau.co8.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.itau.co8.Dto.DeployBpmnDTO;
-import br.com.itau.co8.Dto.DeployBpmnEngineDTO;
-import br.com.itau.co8.Feign.RestEngine;
+import br.com.itau.co8.dto.DeployBpmnDTO;
+import br.com.itau.co8.dto.DeployBpmnEngineDTO;
+import br.com.itau.co8.feign.RestEngine;
 import br.com.itau.co8.Util.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 
