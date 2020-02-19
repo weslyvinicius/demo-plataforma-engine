@@ -15,6 +15,6 @@ import java.util.List;
 public class RequestCompleteDTO {
 
     @JsonProperty("parametrosEntrada")
-    private List<Entrada> entradas;
+    private List<EntradaRequestCompleteDTO> entradas;
 
 }

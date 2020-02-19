@@ -1,6 +1,6 @@
 package br.com.itau.co8.controller;
 
-import br.com.itau.co8.dto.Entrada;
+import br.com.itau.co8.dto.EntradaRequestCompleteDTO;
 import br.com.itau.co8.dto.RequestCompleteDTO;
 import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.FormService;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("user-tasks")
 public class UserTaskController {
 
@@ -22,13 +22,13 @@ public class UserTaskController {
 
     private final FormService formService;
 
-    @PostMapping(value = "/v1/{processInstanceId}/complete", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/{processInstanceId}/complete", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void completeTask(@PathVariable(value = "processInstanceId") String processInstanceId,
                              @RequestBody RequestCompleteDTO requestCompleteDTO) {
 
         Map<String, Object> parametrosEntrada = new HashMap<>();
 
-        for (Entrada t : requestCompleteDTO.getEntradas()) {
+        for (EntradaRequestCompleteDTO t : requestCompleteDTO.getEntradas()) {
             parametrosEntrada.put(t.getId(), t.getValor());
         }
 
