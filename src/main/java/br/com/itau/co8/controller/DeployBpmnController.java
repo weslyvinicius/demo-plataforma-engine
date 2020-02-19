@@ -35,7 +35,7 @@ public class DeployBpmnController {
                 .deploymentSource("local")
                 .build();
 
-        final ResponseEntity<?> responseEntity = restEngine.uploadBpmnEngine(deployBpmnEngineDTO);
+        restEngine.uploadBpmnEngine(deployBpmnEngineDTO);
 
         deployBpmnEngineDTO.getFile().delete();
 
