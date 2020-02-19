@@ -17,7 +17,7 @@ public class JornadaController {
 
     private final RuntimeService runtimeService;
 
-    @PostMapping("nomeJornada/{nomeJornada}/start")
+    @PostMapping("nome-jornada/{nomeJornada}/start")
     public String start(@PathVariable String nomeJornada) {
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(nomeJornada);
