@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("start/jornada")
+@RequestMapping("jornada/v1")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class StartJornadaController {
+public class JornadaController {
 
     private final RuntimeService runtimeService;
 
-    @PostMapping("/{nomeJornada}")
+    @PostMapping("nomeJornada/{nomeJornada}/start")
     public String start(@PathVariable String nomeJornada) {
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(nomeJornada);

@@ -17,7 +17,7 @@ import br.com.itau.co8.util.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("deployment/create")
+@RequestMapping("deployment/v1/create")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DeployBpmnController {
 

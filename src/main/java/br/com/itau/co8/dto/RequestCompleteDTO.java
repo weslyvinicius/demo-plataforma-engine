@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,7 @@ import java.util.List;
 @Builder
 public class RequestCompleteDTO {
 
-    @JsonProperty("parametrosEntrada")
-    private List<Entrada> entradas;
+    @JsonProperty("formParam")
+    private Map<String, Object> formParam;
 
 }
