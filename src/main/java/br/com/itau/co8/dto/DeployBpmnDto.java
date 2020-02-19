@@ -12,7 +12,7 @@ import lombok.NonNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeployBpmnDTO {
+public class DeployBpmnDto {
 
     @NotEmpty
     private String nomeBpmn;

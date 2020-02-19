@@ -12,7 +12,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RequestCompleteDTO {
+public class RequestCompleteDto {
 
     @JsonProperty("formParam")
     private Map<String, Object> formParam;

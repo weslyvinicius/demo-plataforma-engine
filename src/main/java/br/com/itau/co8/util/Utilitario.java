@@ -6,22 +6,22 @@ import java.io.IOException;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class ConvertUtils {
+public class Utilitario {
 
-    public static File convert(MultipartFile file ) {
+    public static File converteMultipartFileParaFile(MultipartFile multipartFile ) {
 
-        File convFile = new File(file.getOriginalFilename());
+        File file = new File(multipartFile.getOriginalFilename());
         try {
 
-            convFile.createNewFile();
-            FileOutputStream fos = new FileOutputStream(convFile);
-            fos.write(file.getBytes());
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(multipartFile.getBytes());
             fos.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return convFile;
+        return file;
     }
 
 }

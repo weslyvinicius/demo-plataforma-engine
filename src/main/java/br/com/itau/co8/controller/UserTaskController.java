@@ -1,6 +1,6 @@
 package br.com.itau.co8.controller;
 
-import br.com.itau.co8.dto.RequestCompleteDTO;
+import br.com.itau.co8.dto.RequestCompleteDto;
 import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.TaskService;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
-@RequestMapping("userTasks/v1")
+@RequestMapping("user-tasks/v1")
 public class UserTaskController {
 
     private final TaskService taskService;
@@ -23,7 +23,7 @@ public class UserTaskController {
 
     @PostMapping(value = "processInstanceId/{processInstanceId}/complete")
     public void completeTask(@PathVariable(value = "processInstanceId") String processInstanceId,
-                             @RequestBody(required = false) RequestCompleteDTO requestCompleteDTO) {
+                             @RequestBody(required = false) RequestCompleteDto requestCompleteDTO) {
 
         Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
 

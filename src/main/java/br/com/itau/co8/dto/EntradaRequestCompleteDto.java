@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EntradaRequestCompleteDTO {
+public class EntradaRequestCompleteDto {
 
     @JsonProperty("id")
     private String id;

@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class DeployBpmnEngineDTO {
+public class DeployBpmnEngineDto {
 
     @FormProperty(value = "deployment-name")
     private String deploymentName;
@@ -24,7 +24,7 @@ public class DeployBpmnEngineDTO {
     @FormProperty(value = "deployment-source")
     private String deploymentSource;
 
-    public DeployBpmnEngineDTO(String deploymentName, File file, boolean enableDuplicateFiltering,
+    public DeployBpmnEngineDto(String deploymentName, File file, boolean enableDuplicateFiltering,
             boolean deployChangedOnly, String deploymentSource) {
         this.deploymentName = deploymentName;
         this.file = file;

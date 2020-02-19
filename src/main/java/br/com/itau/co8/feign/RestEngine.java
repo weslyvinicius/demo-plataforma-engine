@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.com.itau.co8.dto.DeployBpmnEngineDTO;
+import br.com.itau.co8.dto.DeployBpmnEngineDto;
 import feign.Headers;
 
 
@@ -14,5 +14,5 @@ public interface RestEngine {
 
     @PostMapping(value ="${camunda.rest.deployment.create}", consumes = "multipart/form-data")
     @Headers("Content-Type: multipart/form-data")
-    ResponseEntity<?> uploadBpmnEngine(DeployBpmnEngineDTO deployBpmnEngineDTO);
+    ResponseEntity<?> uploadBpmnEngine(DeployBpmnEngineDto deployBpmnEngineDTO);
 }
