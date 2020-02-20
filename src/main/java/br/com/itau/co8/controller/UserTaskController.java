@@ -13,21 +13,21 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping("/v1/user-tasks")
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
-@RequestMapping("user-tasks/v1")
 public class UserTaskController {
 
     private final TaskService taskService;
 
     private final FormService formService;
 
-    @PostMapping(value = "processInstanceId/{processInstanceId}/complete")
+    @PostMapping(value = "{processInstanceId}/complete")
     public void completeTask(@PathVariable(value = "processInstanceId") String processInstanceId,
                              @RequestBody(required = false) RequestCompleteDto requestCompleteDTO) {
 
         Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
 
-        if(Optional.ofNullable(requestCompleteDTO.getFormParam()).isPresent()) {
+        if(Optional.ofNullable(requestCompleteDTO).isPresent()) {
             formService.submitTaskForm(task.getId(), requestCompleteDTO.getFormParam());
         }else {
             formService.submitTaskForm(task.getId(), new HashMap<>());

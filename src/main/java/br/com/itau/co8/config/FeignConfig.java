@@ -12,13 +12,14 @@ import br.com.itau.co8.exception.FeignErrorDecoder;
 import feign.Logger;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableFeignClients(basePackages = "br.com.itau.co8.feign")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class FeignConfig {
 
-    @Autowired
-    private ObjectFactory<HttpMessageConverters> messageConverters;
+    private final ObjectFactory<HttpMessageConverters> messageConverters;
 
     @Bean
     Logger.Level feignLoggerLevel() {
