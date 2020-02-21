@@ -21,9 +21,7 @@ public class JornadaController {
     public String start(@PathVariable String nomeJornada) {
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(nomeJornada);
-        return processInstance.getId() + "  / "+ processInstance.getProcessInstanceId()
-                + "  / "+ processInstance.getProcessDefinitionId()
-                + "  / "+ processInstance.getRootProcessInstanceId();
+        return processInstance.getProcessInstanceId();
     }
 
 }
