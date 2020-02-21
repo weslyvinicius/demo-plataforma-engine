@@ -7,9 +7,9 @@
     <bpmn:endEvent id="EndEvent_03j7fnf">
       <bpmn:incoming>SequenceFlow_0azcltn</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="UserTask_0qmueed" />
-    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="UserTask_0qmueed" targetRef="EndEvent_03j7fnf" />
-    <bpmn:userTask id="UserTask_0qmueed" name="Selecione uma oferta">
+    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="selecione_uma_oferta_task" />
+    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="selecione_uma_oferta_task" targetRef="EndEvent_03j7fnf" />
+    <bpmn:userTask id="selecione_uma_oferta_task" name="Selecione uma oferta">
       <bpmn:incoming>SequenceFlow_02uur82</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0azcltn</bpmn:outgoing>
     </bpmn:userTask>
@@ -30,7 +30,7 @@
         <di:waypoint x="360" y="120" />
         <di:waypoint x="422" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_0hsor13_di" bpmnElement="UserTask_0qmueed">
+      <bpmndi:BPMNShape id="UserTask_0hsor13_di" bpmnElement="selecione_uma_oferta_task">
         <dc:Bounds x="260" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

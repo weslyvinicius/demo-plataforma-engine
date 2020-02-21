@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.task.Task;
+import org.camunda.bpm.engine.task.TaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,13 +25,15 @@ public class UserTaskController {
     @PostMapping(value = "{processInstanceId}/complete")
     public void completeTask(@PathVariable(value = "processInstanceId") String processInstanceId,
                              @RequestBody(required = false) RequestCompleteDto requestCompleteDTO) {
-
-        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
+    	
+    	TaskQuery taskQuery = taskService.createTaskQuery().processInstanceId(processInstanceId);
+        Task task = taskQuery.singleResult();
 
         if(Optional.ofNullable(requestCompleteDTO).isPresent()) {
             formService.submitTaskForm(task.getId(), requestCompleteDTO.getFormParam());
         }else {
             formService.submitTaskForm(task.getId(), new HashMap<>());
-        }
-    }
+		}
+		System.out.println("bla");
+	}
 }

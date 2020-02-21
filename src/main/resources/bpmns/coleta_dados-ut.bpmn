@@ -4,12 +4,12 @@
     <bpmn:startEvent id="StartEvent_13txpj2">
       <bpmn:outgoing>SequenceFlow_0ht4tdp</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0ht4tdp" sourceRef="StartEvent_13txpj2" targetRef="Task_0xavio8" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ht4tdp" sourceRef="StartEvent_13txpj2" targetRef="coleta_dados_task" />
     <bpmn:endEvent id="EndEvent_0brb1m2">
       <bpmn:incoming>SequenceFlow_0i02ikp</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0i02ikp" sourceRef="Task_0xavio8" targetRef="EndEvent_0brb1m2" />
-    <bpmn:userTask id="Task_0xavio8" name="Coleta dados">
+    <bpmn:sequenceFlow id="SequenceFlow_0i02ikp" sourceRef="coleta_dados_task" targetRef="EndEvent_0brb1m2" />
+    <bpmn:userTask id="coleta_dados_task" name="Coleta dados">
       <bpmn:incoming>SequenceFlow_0ht4tdp</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0i02ikp</bpmn:outgoing>
     </bpmn:userTask>
@@ -30,7 +30,7 @@
         <di:waypoint x="390" y="120" />
         <di:waypoint x="452" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_1kom6g3_di" bpmnElement="Task_0xavio8">
+      <bpmndi:BPMNShape id="UserTask_1kom6g3_di" bpmnElement="coleta_dados_task">
         <dc:Bounds x="290" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
