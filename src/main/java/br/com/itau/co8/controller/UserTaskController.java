@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Optional;
 
 import org.camunda.bpm.engine.FormService;
+import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.task.Task;
-import org.camunda.bpm.engine.task.TaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,17 +27,18 @@ public class UserTaskController {
 
     private final FormService formService;
 
+    private final RuntimeService runtimeService;
+
     @PostMapping(value = "{userTaskId}/complete")
     public void completeTask(@PathVariable(value = "userTaskId") String userTaskId,
                              @RequestBody(required = false) RequestCompleteDto requestCompleteDTO) {
 
-        Task task = taskService.createTaskQuery().taskDefinitionKey("userTaskId").singleResult();
+        Task task = taskService.createTaskQuery().taskDefinitionKey(userTaskId).singleResult();
 
         if(Optional.ofNullable(requestCompleteDTO).isPresent()) {
             formService.submitTaskForm(task.getId(), requestCompleteDTO.getFormParam());
         }else {
             formService.submitTaskForm(task.getId(), new HashMap<>());
 		}
-		System.out.println("bla");
 	}
 }

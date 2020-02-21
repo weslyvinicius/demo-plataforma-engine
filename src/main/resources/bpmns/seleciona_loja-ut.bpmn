@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0bpkl8y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0bpkl8y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.4.1">
   <bpmn:process id="seleciona_loja" isExecutable="true">
     <bpmn:startEvent id="seleciona">
       <bpmn:outgoing>SequenceFlow_0ht4tdp</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0ht4tdp" sourceRef="seleciona" targetRef="seleciona_loja_task" />
     <bpmn:endEvent id="EndEvent_0brb1m2">
-      <bpmn:incoming>SequenceFlow_0i02ikp</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_068oqrw</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0i02ikp" sourceRef="seleciona_loja_task" targetRef="EndEvent_0brb1m2" />
     <bpmn:userTask id="seleciona_loja_task" name="Seleciona loja">
       <bpmn:incoming>SequenceFlow_0ht4tdp</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0i02ikp</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0ppas6x</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0ppas6x" sourceRef="seleciona_loja_task" targetRef="teste1" />
+    <bpmn:sequenceFlow id="SequenceFlow_068oqrw" sourceRef="teste1" targetRef="EndEvent_0brb1m2" />
+    <bpmn:userTask id="teste1" name="teste1">
+      <bpmn:incoming>SequenceFlow_0ppas6x</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_068oqrw</bpmn:outgoing>
     </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -24,14 +29,23 @@
         <di:waypoint x="290" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0brb1m2_di" bpmnElement="EndEvent_0brb1m2">
-        <dc:Bounds x="452" y="102" width="36" height="36" />
+        <dc:Bounds x="752" y="112" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_0i02ikp_di" bpmnElement="SequenceFlow_0i02ikp">
-        <di:waypoint x="390" y="120" />
-        <di:waypoint x="452" y="120" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_1kom6g3_di" bpmnElement="seleciona_loja_task">
         <dc:Bounds x="290" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ppas6x_di" bpmnElement="SequenceFlow_0ppas6x">
+        <di:waypoint x="390" y="120" />
+        <di:waypoint x="450" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_068oqrw_di" bpmnElement="SequenceFlow_068oqrw">
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="650" y="120" />
+        <di:waypoint x="650" y="130" />
+        <di:waypoint x="752" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_168fh6h_di" bpmnElement="teste1">
+        <dc:Bounds x="450" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
