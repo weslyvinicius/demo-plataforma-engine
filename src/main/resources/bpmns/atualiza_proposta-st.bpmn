@@ -7,9 +7,9 @@
     <bpmn:endEvent id="EndEvent_03j7fnf">
       <bpmn:incoming>SequenceFlow_0azcltn</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="UserTask_0qmueed" />
-    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="UserTask_0qmueed" targetRef="EndEvent_03j7fnf" />
-    <bpmn:serviceTask id="UserTask_0qmueed" name="Atualiza proposta" camunda:delegateExpression="${atualizaPropostaTask}">
+    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="atualiza_proposta_task" />
+    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="atualiza_proposta_task" targetRef="EndEvent_03j7fnf" />
+    <bpmn:serviceTask id="atualiza_proposta_task" name="Atualiza proposta" camunda:delegateExpression="${atualizaPropostaTask}">
       <bpmn:incoming>SequenceFlow_02uur82</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0azcltn</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -30,7 +30,7 @@
         <di:waypoint x="360" y="120" />
         <di:waypoint x="422" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_0a9w601_di" bpmnElement="UserTask_0qmueed">
+      <bpmndi:BPMNShape id="ServiceTask_0a9w601_di" bpmnElement="atualiza_proposta_task">
         <dc:Bounds x="260" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

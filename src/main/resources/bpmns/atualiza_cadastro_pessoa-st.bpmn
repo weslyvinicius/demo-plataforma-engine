@@ -7,9 +7,9 @@
     <bpmn:endEvent id="EndEvent_03j7fnf">
       <bpmn:incoming>SequenceFlow_0azcltn</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="service_task-atualiza_cadastro_pessoa" />
-    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="service_task-atualiza_cadastro_pessoa" targetRef="EndEvent_03j7fnf" />
-    <bpmn:serviceTask id="service_task-atualiza_cadastro_pessoa" name="Atualiza cadastro pessoa" camunda:delegateExpression="${atualizaCadastroPessoaTask}">
+    <bpmn:sequenceFlow id="SequenceFlow_02uur82" sourceRef="StartEvent_1ryeu3g" targetRef="atualiza_cadastro_pessoa_task" />
+    <bpmn:sequenceFlow id="SequenceFlow_0azcltn" sourceRef="atualiza_cadastro_pessoa_task" targetRef="EndEvent_03j7fnf" />
+    <bpmn:serviceTask id="atualiza_cadastro_pessoa_task" name="Atualiza cadastro pessoa" camunda:delegateExpression="${atualizaCadastroPessoaTask}">
       <bpmn:incoming>SequenceFlow_02uur82</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0azcltn</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -30,7 +30,7 @@
         <di:waypoint x="360" y="120" />
         <di:waypoint x="422" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_0a9w601_di" bpmnElement="service_task-atualiza_cadastro_pessoa">
+      <bpmndi:BPMNShape id="ServiceTask_0a9w601_di" bpmnElement="atualiza_cadastro_pessoa_task">
         <dc:Bounds x="260" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

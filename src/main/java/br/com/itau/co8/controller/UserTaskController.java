@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.task.Task;
+import org.camunda.bpm.engine.task.TaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +37,7 @@ public class UserTaskController {
             formService.submitTaskForm(task.getId(), requestCompleteDTO.getFormParam());
         }else {
             formService.submitTaskForm(task.getId(), new HashMap<>());
-        }
-    }
+		}
+		System.out.println("bla");
+	}
 }
