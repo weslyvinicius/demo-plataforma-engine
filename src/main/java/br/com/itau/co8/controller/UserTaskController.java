@@ -18,12 +18,12 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/v1/user-tasks")
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserTaskController {
 
    private final UserTaskService userTaskService;
 
-    @PostMapping(value = "{userTaskId}/process-instance-id/{processInstanceId}/complete")
+    @PostMapping(value = "{userTaskId}/{processInstanceId}/complete")
     public void completeTask(@PathVariable(value = "userTaskId") String userTaskId,
                              @PathVariable(value = "processInstanceId") String processInstanceId,
                              @RequestBody(required = false) RequestCompleteDto requestCompleteDTO) {
@@ -31,7 +31,7 @@ public class UserTaskController {
         Map<String, Object> formParametros = Optional.ofNullable(requestCompleteDTO).isPresent() ?
                 requestCompleteDTO.getFormParam() : new HashMap<>();
 
-        userTaskService.userTaskComplite(userTaskId, processInstanceId, formParametros);
+        userTaskService.userTaskComplete(userTaskId, processInstanceId, formParametros);
 	}
 
 }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserTaskService {
 
     private final TaskService taskService;
@@ -23,7 +23,7 @@ public class UserTaskService {
 
     private final RuntimeService runtimeService;
 
-    public void userTaskComplite(final String userTaskId, final String processInstanceId, final Map<String,
+    public void userTaskComplete(final String userTaskId, final String processInstanceId, final Map<String,
                 Object> formParametos){
 
         final Execution execution = runtimeService.createNativeExecutionQuery()

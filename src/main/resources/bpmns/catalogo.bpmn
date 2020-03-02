@@ -1,33 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="Definitions_1ay0wrr" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1ay0wrr" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
   <bpmn:process id="catalogo" name="Catálogo de Serviços/Processos" isExecutable="true">
-    <bpmn:callActivity id="ca_analisando_proposta" name="Analisando proposta" calledElement="analisando_proposta" />
-    <bpmn:callActivity id="ca_analise_fraude" name="Analise de fraude" calledElement="analise_fraude" />
-    <bpmn:callActivity id="ca_atualiza_cadastro_pessoa" name="Atualiza cadastro pessoa" calledElement="atualiza_cadastro_pessoa" />
-    <bpmn:callActivity id="ca_atualiza_proposta" name="Atualiza proposta" calledElement="atualiza_proposta" />
-    <bpmn:callActivity id="ca_cancela_proposta_no" name="Cancela proposta - NO" calledElement="cancela_proposta_no" />
-    <bpmn:callActivity id="ca_cartao_adicional" name="Carão adicional" calledElement="cartao_adicional" />
-    <bpmn:callActivity id="ca_coleta_dados" name="Coleta dados" calledElement="coleta_dados" />
-    <bpmn:callActivity id="ca_confirmacao" name="Confirmação" calledElement="confirmacao" />
-    <bpmn:callActivity id="ca_dados_cliente" name="Dados do cliente" calledElement="dados_cliente" />
-    <bpmn:callActivity id="ca_dados_completos_mesa_credito" name="Dados completos (mesa credito)" calledElement="dados_completos_mesa_credito" />
-    <bpmn:callActivity id="ca_dados_endereco" name="Dados do endereço" calledElement="dados_endereco" />
-    <bpmn:callActivity id="ca_dados_profissionais" name="Dados profissionais" calledElement="dados_profissionais" />
-    <bpmn:callActivity id="ca_efetivar_proposta_seguros" name="Efetivar Proposta de seguros" calledElement="efetivar_proposta_seguros" />
-    <bpmn:callActivity id="ca_emitir_cartao" name="Emitir cartão" calledElement="emitir_cartao" />
-    <bpmn:callActivity id="ca_foto_documento" name="Foto documento" calledElement="foto_documento" />
-    <bpmn:callActivity id="ca_informacoes_adicionais" name="Informações adicionais" calledElement="informacoes_adicionais" />
-    <bpmn:callActivity id="ca_oferta_cartao" name="Oferta cartão" calledElement="oferta_cartao" />
-    <bpmn:callActivity id="ca_oferta_seguro" name="Oferta seguro" calledElement="oferta_seguro" />
-    <bpmn:callActivity id="ca_proposta_nao_aprovada" name="Proposta não aprovada" calledElement="proposta_nao_aprovada" />
-    <bpmn:callActivity id="ca_recusa_pre_analise" name="Recusa pré-analise" calledElement="recusa_pre_analise" />
-    <bpmn:callActivity id="ca_salvar_documento" name="Salvar documento" calledElement="salvar_documento" />
-    <bpmn:callActivity id="ca_seleciona_loja" name="Seleciona loja" calledElement="seleciona_loja" />
-    <bpmn:callActivity id="ca_selecionar_servicos_e_seguros" name="Selecionar serviços e seguros" calledElement="selecionar_servicos_e_seguros" />
-    <bpmn:callActivity id="ca_selecione_uma_oferta" name="Selecione uma oferta" calledElement="selecione_uma_oferta" />
-    <bpmn:callActivity id="ca_simulacao_proposta" name="Simulação proposta" calledElement="simulacao_proposta" />
-    <bpmn:callActivity id="ca_solicitacao_aprovada" name="Solicitação aprovada" calledElement="solicitacao_aprovada" />
-    <bpmn:callActivity id="ca_termo_e_resumo" name="Termo e resumo" calledElement="termo_e_resumo" />
+    <bpmn:callActivity id="ca_analisando_proposta" name="Analisando proposta" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="analisando_proposta">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_analise_fraude" name="Analise de fraude" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="analise_fraude">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_atualiza_cadastro_pessoa" name="Atualiza cadastro pessoa" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="atualiza_cadastro_pessoa">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_atualiza_proposta" name="Atualiza proposta" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="atualiza_proposta">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_cancela_proposta_no" name="Cancela proposta - NO" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="cancela_proposta_no">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_cartao_adicional" name="Cartão adicional" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="cartao_adicional">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_coleta_dados" name="Coleta dados" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="coleta_dados">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_confirmacao" name="Confirmação" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="confirmacao">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_dados_cliente" name="Dados do cliente" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="dados_cliente">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_dados_completos_mesa_credito" name="Dados completos (mesa credito)" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="dados_completos_mesa_credito">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_dados_endereco" name="Dados do endereço" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="dados_endereco">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_dados_profissionais" name="Dados profissionais" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="dados_profissionais">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_efetivar_proposta_seguros" name="Efetivar Proposta de seguros" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="efetivar_proposta_seguros">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_emitir_cartao" name="Emitir cartão" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="emitir_cartao">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_foto_documento" name="Foto documento" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="foto_documento">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_informacoes_adicionais" name="Informações adicionais" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="informacoes_adicionais">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_oferta_cartao" name="Oferta cartão" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="oferta_cartao">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_oferta_seguro" name="Oferta seguro" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="oferta_seguro">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_proposta_nao_aprovada" name="Proposta não aprovada" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="proposta_nao_aprovada">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_recusa_pre_analise" name="Recusa pré-analise" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="recusa_pre_analise">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_salvar_documento" name="Salvar documento" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="salvar_documento">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_seleciona_loja" name="Seleciona loja" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="seleciona_loja">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_selecionar_servicos_e_seguros" name="Selecionar serviços e seguros" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="selecionar_servicos_e_seguros">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_selecione_uma_oferta" name="Selecione uma oferta" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="selecione_uma_oferta">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_simulacao_proposta" name="Simulação proposta" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="simulacao_proposta">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_solicitacao_aprovada" name="Solicitação aprovada" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="solicitacao_aprovada">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="ca_termo_e_resumo" name="Termo e resumo" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="termo_e_resumo">
+      <bpmn:extensionElements>
+        <camunda:in variables="all" />
+        <camunda:out variables="all" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="catalogo">

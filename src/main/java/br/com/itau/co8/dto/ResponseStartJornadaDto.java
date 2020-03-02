@@ -12,12 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EntradaRequestCompleteDto {
+public class ResponseStartJornadaDto {
 
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("valor")
-    private Object valor;
+    @JsonProperty("processInstanceId")
+    private String processInstanceId;
 
 }
