@@ -5,12 +5,15 @@ import java.util.Map;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
+import org.camunda.bpm.engine.form.TaskFormData;
 import org.camunda.bpm.engine.impl.persistence.entity.ExecutionEntity;
 import org.camunda.bpm.engine.runtime.Execution;
 import org.camunda.bpm.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.itau.co8.dto.UserTaskFormDto;
+import br.com.itau.co8.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -48,5 +51,18 @@ public class UserTaskService {
         sb.append(" AND ACT_ID_ = #{userTaskId} ");
         sb.append(" AND IS_ACTIVE_ = #{ative} ");
         return sb.toString();
+    }
+
+    public UserTaskFormDto formUserTask(String processInstanceId) {
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
+        TaskFormData taskFormData = formService.getTaskFormData(task.getId());
+
+        if( taskFormData !=null)
+            return UserTaskFormDto.builder()
+                    .formKey(taskFormData.getFormKey())
+                    .formFields(taskFormData.getFormFields())
+                    .build();
+        throw new NotFoundException();
+
     }
 }
