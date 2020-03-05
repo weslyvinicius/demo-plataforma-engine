@@ -38,10 +38,11 @@ public class UserTaskController {
         userTaskService.userTaskComplete(userTaskId, processInstanceId, formParametros);
 	}
 
-    @GetMapping(value = "/{processInstanceId}/form")
+    @GetMapping(value = "{userTaskId}/{processInstanceId}/form")
     @ResponseStatus(HttpStatus.OK)
-    public UserTaskFormDto formTask(@PathVariable(value = "processInstanceId") String processInstanceId) {
-        return userTaskService.formUserTask(processInstanceId);
+    public UserTaskFormDto formTask(@PathVariable(value = "userTaskId") String userTaskId,
+            @PathVariable(value = "processInstanceId") String processInstanceId) {
+        return userTaskService.formUserTask(userTaskId, processInstanceId);
     }
 
 }

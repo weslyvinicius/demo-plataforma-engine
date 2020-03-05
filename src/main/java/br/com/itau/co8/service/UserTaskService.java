@@ -1,6 +1,7 @@
 package br.com.itau.co8.service;
 
 import java.util.Map;
+import java.util.Optional;
 
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
@@ -29,6 +30,33 @@ public class UserTaskService {
     public void userTaskComplete(final String userTaskId, final String processInstanceId, final Map<String,
                 Object> formParametos){
 
+        Optional<Task> task = buscandoIdDaTaskEmExecucao(userTaskId, processInstanceId);
+
+        if(task.isPresent()){
+            formService.submitTaskForm(task.get().getId(), formParametos);
+        }
+
+
+    }
+
+    public UserTaskFormDto formUserTask(final String userTaskId, final String processInstanceId) {
+        Optional<Task> task = buscandoIdDaTaskEmExecucao(userTaskId, processInstanceId);
+
+        if(task.isPresent()){
+            formService.getTaskFormData(task.get().getId());
+            TaskFormData taskFormData = formService.getTaskFormData(task.get().getId());
+
+            return UserTaskFormDto.builder()
+                    .formKey(task.get().getTaskDefinitionKey())
+                    .formFields(taskFormData.getFormFields()).build();
+        }
+
+        throw new NotFoundException();
+
+    }
+
+    private Optional<Task> buscandoIdDaTaskEmExecucao(final String userTaskId, final String processInstanceId){
+
         final Execution execution = runtimeService.createNativeExecutionQuery()
                 .sql(createQuery())
                 .parameter("rootProcessInstanceId", processInstanceId.trim())
@@ -36,11 +64,12 @@ public class UserTaskService {
                 .parameter("ative", Boolean.TRUE.toString().toUpperCase())
                 .singleResult();
 
-        final String processInstanceIduserTask = ((ExecutionEntity) execution).getProcessInstanceId();
+        final String processInstanceExecution = ((ExecutionEntity) execution).getProcessInstanceId();
 
-        Task task = taskService.createTaskQuery().processInstanceId(processInstanceIduserTask).singleResult();
-        formService.submitTaskForm(task.getId(), formParametos);
-
+        return Optional.ofNullable(taskService.createTaskQuery()
+                .processInstanceId(processInstanceExecution)
+                .active()
+                .singleResult());
     }
 
     private String createQuery(){
@@ -51,18 +80,5 @@ public class UserTaskService {
         sb.append(" AND ACT_ID_ = #{userTaskId} ");
         sb.append(" AND IS_ACTIVE_ = #{ative} ");
         return sb.toString();
-    }
-
-    public UserTaskFormDto formUserTask(String processInstanceId) {
-        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
-        TaskFormData taskFormData = formService.getTaskFormData(task.getId());
-
-        if( taskFormData !=null)
-            return UserTaskFormDto.builder()
-                    .formKey(taskFormData.getFormKey())
-                    .formFields(taskFormData.getFormFields())
-                    .build();
-        throw new NotFoundException();
-
     }
 }
